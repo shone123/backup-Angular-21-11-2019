@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+
+<style type="text/css">
+    html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.calculator {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 283px;
+}
+
+.calculator-screen {
+  width: 100%;
+  font-size: 5rem;
+  height: 80px;
+  border: none;
+  background-color: #252525;
+  color: #fff;
+  text-align: right;
+  padding-right: 20px;
+  padding-left: 10px;
+}
+
+input[type=button] {
+   background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; font-size: 16px; margin: 4px 2px;
+}
+
+button:hover {
+  background-color: #eaeaea;
+}
+
+.operator {
+  color: #337cac;
+}
+
+.all-clear {
+  background-color: #f0595f;
+  border-color: #b0353a;
+  color: #fff;
+}
+
+.all-clear:hover {
+  background-color: #f17377;
+}
+
+.equal-sign {
+  background-color: #2e86c0;
+  border-color: #337cac;
+  color: #fff;
+  height: 100%;
+  grid-area: 2 / 4 / 6 / 5;
+}
+
+.equal-sign:hover {
+  background-color: #4e9ed4;
+}
+
+.calculator-keys {
+  display: grid;
+  grid-template-columns: repeat(4, -1fr);
+  grid-gap: 20px;
+  padding: 20px;
+}
+</style>
+
+</head>
+<body>
+
+    <div class="calculator">
+
+        <div class="calculator-keys">
+
+
+        <form name="calculator" >
+            <input type="textfield" name="ans" value="">
+            <input type="text" name="result">    
+            <input type="button" value="1" onClick="document.calculator.ans.value+='1'">
+            <input type="button" value="2" onClick="document.calculator.ans.value+='2'">
+            <input type="button" value="3" onClick="document.calculator.ans.value+='3'">
+            <input type="button" value="4" onClick="document.calculator.ans.value+='4'">
+            <input type="button" value="5" onClick="document.calculator.ans.value+='5'">
+            <input type="button" value="6" onClick="document.calculator.ans.value+='6'">
+            <input type="button" value="7" onClick="document.calculator.ans.value+='7'">
+            <input type="button" value="8" onClick="document.calculator.ans.value+='8'">
+            <input type="button" value="9" onClick="document.calculator.ans.value+='9'">
+            <input type="button" value="-" onClick="document.calculator.ans.value+='-'">
+            <input type="button" value="+" onClick="document.calculator.ans.value+='+'">
+            <input type="button" value="*" onClick="document.calculator.ans.value+='*'">
+            <input type="button" value="/" onClick="document.calculator.ans.value+='/'">
+             
+            <input type="button" value="0" onClick="document.calculator.ans.value+='0'">
+            <input type="reset" value="Reset">
+            <input type="button" value="=" onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
+            
+        </form>
+
+        </div>    
+        
+    </div>
+       
+</body>
+</html>

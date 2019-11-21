@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+ var my_span_Content = $("#my_span").contents();
+$("#my_span").replaceWith(my_span_Content);
+});
+</script>
+
+<div id="my_span">
+  <h2>headline</h2>
+  <p>Hallo Du!</p>
+</div>
+
+</body>
+</html>

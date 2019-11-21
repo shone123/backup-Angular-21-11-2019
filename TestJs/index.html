@@ -1,0 +1,198 @@
+<html>
+
+  <head>
+
+     <!-- define on/off styles -->
+     <style type="text/css">
+      .on  { background:blue; }
+      .off { background:red; }
+     </style>
+	 
+	 <script src="firstFile.js"></script>
+	 <script src="secondfile.js"></script>
+
+  </head>
+
+  <body>
+  
+  <script>
+/*
+  document.addEventListener('DOMContentLoaded', function() {	
+	});
+*/	
+	
+/*	
+    var str = '<ul>'
+
+	slides.forEach(function(slide) {
+	  str += '<li>'+ slide + '</li>';
+	}); 
+
+	str += '</ul>';
+*/		
+
+document.addEventListener('DOMContentLoaded', function() {
+	
+var arr = ["Pen", "table", "chair", "mobile"];
+
+var list;
+
+var ul = document.createElement('ul');
+
+
+
+	arr.forEach(function(value, index) {
+		
+		ul += '<li>' + value + '<li>';
+	});
+	document.getElementById('showlist').appendChild(ul);
+	
+});
+		
+  </script>
+  
+  
+  
+  <div id="showlist">
+  
+  </div>
+  
+  
+    <table id="priceTable">
+		<tr>
+			<th>Id</th>
+			<th>Product Name</th>
+			<th>Product Price</th>
+		</tr>
+		<tr> 
+			<td>1</td>
+			<td>Shirts</td>
+			<td>49.99</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Pants</td>
+			<td>55.50</td>
+		</tr>
+		<tr> 
+			<td>3</td>
+			<td>Socks</td>
+			<td>20</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>Shoes</td>
+			<td>99</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>Jackets</td>
+			<td>88.90</td>
+		</tr>
+</table>
+   
+    <!-- define the toggle function -->
+     <script language="javascript">	 
+	 
+	 function controller() {
+	 
+	 this.name = "david";
+	 
+	 this.getName = function() {
+	 
+			return this.name;
+	 },
+	 
+	 this.test = function() {
+		
+		alert("This is another test");
+	 }
+	 
+	 }
+	 
+	 
+	 
+	 
+	/*  
+        var arr = [
+			{name: "deepak", age: 23},
+			{name: "adhar", age: 12}
+		];
+        var col = [];
+		
+        for (var i = 0; i < arr.length; i++) {
+            for (var key in arr[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+		console.log(col);*/
+		
+	/*	function setValue() {	
+			var entity = "my entity description";		
+				function getValue() {		
+					if(isNaN(entity)) {				
+					entity = 24;
+					console.log(entity);
+					}else{			
+						entity = "This is re-assigned entity";				
+					}
+			    }
+
+		    return getValue;			
+		}			
+		var getTestResult = setValue();
+		
+		getTestResult();
+		
+	*/
+    /*
+    var foo = [1,2,3];
+	var bar = [1,2,3];
+	var foo2 = foo;
+	var bar2 = bar; 
+    
+    foo = [];	
+
+/*		
+window.addEventListener("load", function () {
+  function sendData() {
+    var XHR = new XMLHttpRequest();
+
+    // Bind the FormData object and the form element
+    var FD = new FormData(form);
+
+    // Define what happens on successful data submission
+    XHR.addEventListener("load", function(event) {
+      alert(event.target.responseText);
+    });
+
+    // Define what happens in case of error
+    XHR.addEventListener("error", function(event) {
+      alert('Oops! Something went wrong.');
+    });
+
+    // Set up our request
+    XHR.open("POST", "https://example.com/cors.php");
+
+    // The data sent is what the user provided in the form
+    XHR.send(FD);
+  }
+ 
+  // Access the form element...
+  var form = document.getElementById("myForm");
+
+  // ...and take over its submit event.
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    sendData();
+  });
+});
+*/	
+</script>
+				
+  </body>
+
+</html>

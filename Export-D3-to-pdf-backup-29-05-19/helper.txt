@@ -1,0 +1,58 @@
+https://stackoverflow.com/questions/33342353/d3-js-data-binding-with-table-and-chart
+
+
+
+data = [{"sepalLength":"5.1","sepalWidth":"3.5","petalLength":"1.4","petalWidth":"0.2","species":"setosa"},{"sepalLength":"4.6","sepalWidth":"3.6","petalLength":"1.0","petalWidth":"0.2","species":"setosa"},{"sepalLength":"6.0","sepalWidth":"2.7","petalLength":"5.1","petalWidth":"1.6","species":"versicolor"},{"sepalLength":"5.5","sepalWidth":"2.6","petalLength":"4.4","petalWidth":"1.2","species":"versicolor"},{"sepalLength":"6.1","sepalWidth":"3.0","petalLength":"4.6","petalWidth":"1.4","species":"versicolor"},{"sepalLength":"5.8","sepalWidth":"2.6","petalLength":"4.0","petalWidth":"1.2","species":"versicolor"},{"sepalLength":"5.0","sepalWidth":"2.3","petalLength":"3.3","petalWidth":"1.0","species":"versicolor"},{"sepalLength":"5.6","sepalWidth":"2.7","petalLength":"4.2","petalWidth":"1.3","species":"versicolor"},{"sepalLength":"5.7","sepalWidth":"3.0","petalLength":"4.2","petalWidth":"1.2","species":"versicolor"},{"sepalLength":"6.2","sepalWidth":"3.4","petalLength":"5.4","petalWidth":"2.3","species":"virginica"},{"sepalLength":"5.9","sepalWidth":"3.0","petalLength":"5.1","petalWidth":"1.8","species":"virginica"}];
+  
+
+-----------------------------------
+
+let canvas = document.createElement('canvas');
+canvg(canvas, svg);
+let imgData = canvas.toDataURL('image/png');
+
+var doc = new jsPDF('l', 'pt', [1020, 768]);
+doc.addImage(imgData, 'PNG', 0, 0, 1020, 768);
+doc.save('svg-png-chart.pdf');
+
+
+
+
+function svg2img(){
+    var svg = document.querySelector('svg');
+    var xml = new XMLSerializer().serializeToString(svg);
+    var svg64 = btoa(xml); //for utf8: btoa(unescape(encodeURIComponent(xml)))
+    var b64start = 'data:image/svg+xml;base64,';
+    var image64 = b64start + svg64;
+    return image64;
+};svg2img()
+
+===========================================================  svg table
+
+    d3.select("#ab")
+          .append("foreignObject")
+          .attr("width", 500)
+          .attr("height", 500)
+          .append("xhtml:table");
+
+        d3.select("table")
+          .append("tr")
+          .attr("class", "head")
+          .selectAll("th")
+          .data(d3.keys(data[0]))
+          .enter()
+          .append("th")
+          .html(function (d) {return d})
+
+        d3.select("table")
+          .selectAll("tr.data")
+          .data(data).enter()
+          .append("tr")
+          .attr("class", "data")
+
+        d3.selectAll("tr")
+          .selectAll("td")
+          .data(function(d) {return d3.entries(d)})
+          .enter()
+          .append("td")
+          .html(function (d) {return d.value})

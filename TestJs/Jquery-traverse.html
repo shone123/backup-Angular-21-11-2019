@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.descendants * { 
+  display: block;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+<script>
+$(document).ready(function(){
+/*	
+	function makeTable(container, data) {   // create a table 
+		var table = $("<table/>").addClass('CSSTableGenerator');
+		$.each(data, function(rowIndex, r) {
+			var row = $("<tr/>");
+			$.each(r, function(colIndex, c) { 
+				row.append($("<t"+(rowIndex == 0 ?  "h" : "d")+"/>").text(c));
+			});
+			table.append(row);
+		});
+		return container.append(table);
+    }	
+	function tableWithValue() {		
+			var data = [["City 1", "City 2", "City 3"], //headers
+                ["New York", "LA", "Seattle"], 
+                ["Paris", "Milan", "Rome"], 
+                ["Pittsburg", "Wichita", "Boise"]]
+			var cityTable = makeTable($(document.body), data);
+	}
+*/	
+	
+//tableWithValue();
+
+var root_1 = 'https://jsonplaceholder.typicode.com/users/1';
+var root_2 = 'https://jsonplaceholder.typicode.com/users/2';
+var root_3 = 'https://jsonplaceholder.typicode.com/users/3';
+
+function getData1 (){   
+   return $.get(root_1);
+}
+function getData2 (){   
+   return $.get(root_2);
+}
+function getData3 (){   
+   return $.get(root_3);
+}
+ 
+function defCalls(){
+   var def = $.Deferred();
+   $.when(getData1(),getData2(),getData3()).done(function(r1,r2,r3){
+     def.resolve(r1,r2,r3);
+   })
+   return def.promise();
+}
+
+defCalls().done(function(d1,d2,d3){
+   //now we have access to data...
+   
+   console.log(d1);
+   console.log(d2);
+   console.log(d3);
+})
+
+});
+  
+</script>
+	
+<table>		
+		<tr>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Salary</th>
+		</tr>		
+		<tr>
+			<td>Rahul</td>
+			<td>23</td>
+			<td>3000</td>
+		<tr>
+		<tr>
+			<td>Suman</td>
+			<td>12</td>
+			<td>20000</td>
+		<tr>
+	
+</table> 	
+	
+	
+
+</body>
+</html>

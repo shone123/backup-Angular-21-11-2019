@@ -1,0 +1,39 @@
+		
+			var json = [   
+   {name: "Rahul", age:30},
+   {name: "Suman", age:25}
+   ]
+	  
+// user options
+		var tableTop = 50,
+			colWidth = 100,
+			tableLeft = 20,
+			rowHeight = 20,
+			cellPadding = 2.5,
+			valueDecimals = 1,
+			height = 400,
+			width = 500,
+			fontsize = 13,
+			em = 1.5,
+			valueSuffix = ' °C';
+	
+var my_svg = '<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" id="svg_table" width="'+width+'px" height="'+height+'px">'
+
+json.forEach(function(val,index) {
+        //Add a rectangle for each <td> in the same place in SVG as the <td> is in relation to the top left of where the table is on page
+        my_svg += '<rect x="'+tableTop+'" y="'+tableLeft+'" width="'+colWidth+'" height="'+rowHeight+'" stroke="silver" stroke-width="'+cellPadding+'px"/>';
+
+                var this_text = '<text x="'+rowHeight+'" y="'+rowHeight+'" text-anchor="middle" style="font-size:'+fontsize+'; fill: green">';
+                    // Look for <br> tags and split them onto new lines.
+                    //var this_lines = $(this).html().split('<br>');
+                    for(var i in val ){
+                        this_text += '<tspan x="'+rowHeight+'" dy="'+em+'">'+val[i]+' </tspan><br/> ';
+                    }
+            this_text += '</text>';
+            my_svg +=  this_text;
+    })
+my_svg += '</svg>';
+
+$('.widgetContainer')[0].append(my_svg);
+			
+	

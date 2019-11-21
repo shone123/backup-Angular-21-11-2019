@@ -1,0 +1,120 @@
+<html>
+
+  <head>
+
+     <!-- define on/off styles -->
+     <style type="text/css">
+      .on  { background:blue; }
+      .off { background:red; }
+     </style>
+	 
+	 <script src="firstFile.js"></script>
+	 <script src="secondfile.js"></script>
+
+  </head>
+
+  <body>
+  
+  <script>
+/*
+  document.addEventListener('DOMContentLoaded', function() {	
+	});
+*/	
+	window.onload = function() {
+	
+		document.querySelector('#my-awesome-el').innerHTML = new Date();
+	}
+		
+  </script>
+  <div id="my-awesome-el"></div>
+  
+  <img src="rose_1.jpg" alt="Smiley face" width="42" height="42
+  <img src="rose_2.jpg" alt="Smiley face" width="42" height="42">
+  <img src="rose_3.jpg" alt="Smiley face" width="42" height="42">
+  
+    <!-- define the toggle function -->
+     <script language="javascript">	 
+	/*  
+        var arr = [
+			{name: "deepak", age: 23},
+			{name: "adhar", age: 12}
+		];
+        var col = [];
+		
+        for (var i = 0; i < arr.length; i++) {
+            for (var key in arr[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+		console.log(col);*/
+		
+	/*	function setValue() {	
+			var entity = "my entity description";		
+				function getValue() {		
+					if(isNaN(entity)) {				
+					entity = 24;
+					console.log(entity);
+					}else{			
+						entity = "This is re-assigned entity";				
+					}
+			    }
+
+		    return getValue;			
+		}			
+		var getTestResult = setValue();
+		
+		getTestResult();
+		
+	*/
+    /*
+    var foo = [1,2,3];
+	var bar = [1,2,3];
+	var foo2 = foo;
+	var bar2 = bar; 
+    
+    foo = [];	
+
+/*		
+window.addEventListener("load", function () {
+  function sendData() {
+    var XHR = new XMLHttpRequest();
+
+    // Bind the FormData object and the form element
+    var FD = new FormData(form);
+
+    // Define what happens on successful data submission
+    XHR.addEventListener("load", function(event) {
+      alert(event.target.responseText);
+    });
+
+    // Define what happens in case of error
+    XHR.addEventListener("error", function(event) {
+      alert('Oops! Something went wrong.');
+    });
+
+    // Set up our request
+    XHR.open("POST", "https://example.com/cors.php");
+
+    // The data sent is what the user provided in the form
+    XHR.send(FD);
+  }
+ 
+  // Access the form element...
+  var form = document.getElementById("myForm");
+
+  // ...and take over its submit event.
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    sendData();
+  });
+});
+*/	
+</script>
+		
+		
+  </body>
+
+</html>

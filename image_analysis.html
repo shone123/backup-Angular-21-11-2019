@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+  	<script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <link rel="StyleSheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"  type="text/css" media="all" />
+    <link rel="StyleSheet" href="../ubaweb/css/xpweb.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+    <link rel="StyleSheet" href="../ubaweb/css/main.css" type="text/css" media="all" />
+    <!-- <link rel="StyleSheet" href="../ubaweb/css/themes.css" type="text/css" media="all" />  -->   
+    <script language="javascript" src="../ubaweb/js/DefaultLayoutManager.js"></script>
+    <script language="javascript" src="../ubaweb/js/Application.js"></script>
+     <script language="javascript" src="../ubaweb/js/AbzoobaWidgets/AbzoobaWidgets.js"></script>
+    <script language="javascript" src="../ubaweb/js/uba_controller.js"></script>
+    
+    <link rel="StyleSheet" href= "https://mbraak.github.io/jqTree/jqtree.css" />
+     <script src="https://mbraak.github.io/jqTree/tree.jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+   <script language="javascript" src="../ubaweb/js/imageAnalysis.js" ></script>
+    <script language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootpag/1.0.7/jquery.bootpag.js"></script> 
+     <script language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/utf8/3.0.0/utf8.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <link rel="StyleSheet" href="../ubaweb/css/theme-hap.css" type="text/css" media="all" />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+	<link rel="StyleSheet" href="css/theme-hap.css" type="text/css" media="all" />
+    
+   <style>
+        .help-txt-content table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+           
+        }
+        question-div-cls{
+            display: block;
+            height: 200px;
+            overflow: overlay;
+        }
+
+        .help-txt-content td, .help-txt-content th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        form.formSearch {
+    position: relative;
+}
+
+.search-wapper .formSearch button, .search-btn {
+    width: 42px;
+    height: 42px;
+    border: none;
+    background: #4b99c1;
+    position: absolute;
+    right: 0;
+    color: #fff;
+    top: 0;
+}
+.search-wapper form.formSearch input[type=text] {
+    background: #fff;
+    border-radius: 0;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+    padding: 0 40px 0 15px;
+    font-family: 'PT Sans', sans-serif;
+    line-height: 40px;
+}
+
+.search-wapper {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.search-wapper  input[type="text"] {
+    width: 100%;
+    border-radius: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: 'PT Sans', sans-serif;
+}
+.help-icon-freetxt {
+    position: absolute;
+    right: -25px;
+    top: -5px;
+    cursor: pointer;
+    z-index: 1;
+}
+.question-div-cls {
+    position: fixed;
+    z-index: 1;
+    background: #fcfcfc;
+    padding: 15px;
+    border: 1px solid #f3f3f3;
+    border-radius: 0 15px 0 0;
+    margin-left: 10px;
+}
+.close-helptext {
+    position: absolute;
+    right: -2px;
+    top: -1px;
+    width: 22px;
+    height: 22px;
+}
+.close-helptext i{
+    font-size: 22px;
+    color: #000;
+}
+
+.help-txt-content {
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.help-txt-content th, .help-txt-content td {
+    border: none;
+    font-size: 13px
+}
+
+.help-txt-content th + th, .help-txt-content td + td {
+    border-left: 1px solid #ccc !important;
+}
+
+.help-txt-content tr:nth-child(even){
+    background: #f1f1f1;    
+}
+.help-txt-content tr:nth-child(odd){
+    background: #fff;    
+}
+.help-txt-content th{
+    font-weight: bold;
+}
+.clinical-search-wapper {
+		background: #016180;
+		padding: 15px;
+		font-size: 14px;
+		color: #a7bdc8;
+	}
+	.clinical-search-wapper label{
+		color: #ebf8ff;
+	    line-height: 1.2;
+	    padding-top: 10px;
+	    font-size: 15px;
+	}
+	.clinical-search-wapper input[type="text"],
+	.clinical-search-wapper input[type="number"] {
+		width: 100%;
+		line-height: 35px;
+		border: none;
+		padding: 0 5px;
+		border-radius: 4px;
+		height: 35px;
+	}
+
+	.clinical-search-wapper form > .row {
+		margin-bottom: 15px;
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+	.clinical-search-wapper select {
+		width: 100%;
+		height: 35px;
+	}
+	.submit-btn {
+		width: 100%;
+		border-radius: 0;
+		background: #20afdd;
+		color: #fff !important;
+		height: 45px;
+		line-height: 45px;
+		padding: 0 10px;
+	}
+.clinical-pagination {
+    overflow: hidden;
+    margin: 15px 0 0;
+}
+.clinical-pagination ul {
+    float: right;
+    overflow: hidden;
+    display: block;
+}
+
+.clinical-pagination ul li{
+    display: block;
+    float: left;
+}
+
+.clinical-pagination ul a {
+    padding: 5px 10px;    
+    display: block;
+}
+
+.clinical-pagination ul li.active a,
+.clinical-pagination ul li a:hover{
+    background:#4b99c1;
+    color: #fff;
+
+}
+.filter-result-wapper{
+		background: #eae8e8;
+		border: 1px solid #cacaca;
+		padding: 15px;
+	}
+	.filter-result-wapper h2,
+	.clinical-search-wapper h2{
+		font-size: 20px;
+		font-weight: normal;
+		text-transform: uppercase;
+		margin-bottom: 20px;
+	}
+	.filter-result-wapper h2 {
+		color: #000;
+	}
+	.clinical-pagination ul li.disabled a {
+   		cursor: not-allowed;
+	}
+	.clinical-pagination ul li.disabled a:hover {
+	    background: none;
+	    color: #aaaaaa;
+	}
+		.clinical-search-wapper h2 {
+		color: #fff;
+	}
+	.filter-result-wapper .accordion-group {
+		background: #fff;
+		border: 1px solid #ddd;
+		padding: 5px 15px;
+	}
+	.filter-result-wapper .accordion-group + .accordion-group{
+		margin-top: -1px;
+	}
+	.filter-result-wapper .accordion-toggle {
+	    display: block;
+		position: relative;
+		padding-left: 35px;
+		font-size: 16px;
+		color: #000;
+		text-decoration: none !important;
+	}
+	.filter-result-wapper .accordion-toggle:after {
+	  content: "\f067";
+	  font-family: 'Font Awesome 5 Free';
+	  position: absolute;
+	  left: 0;
+	  top: 2px;
+	  font-size: 14px;
+	  font-weight: bold;
+	}
+	.filter-result-wapper .accordion-toggle[aria-expanded="true"]:after {
+	  content: "\f068";
+	}
+	
+	.filter-result-wapper .accordion-body {
+		padding: 5px 0 0 35px;
+	}
+	.filter-result-wapper .accordion-inner .accordion-toggle {
+		text-transform: unset;
+		font-weight: bold;
+	}
+	.result-listing, .inner-result-listing {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+.left-col {
+    display: block;
+    position: relative;
+}
+.result-listing .left-col {
+    float: left;
+    width: 200px;
+}
+.left-col:after {
+    content: ':';
+    position: absolute;
+    right: 0;
+    font-weight: normal;
+}
+.result-listing .right-col {
+    width: calc(100% - 250px);
+    float: right;
+}
+.no-data {
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ddd;
+    background: #fff;
+}  
+.grey-btn {
+    background: #8e8e8e;
+} 
+.inner-result-listing .left-col {
+    float: left;
+    width: 165px;
+}
+.smoking-status {
+    display: inline-block;
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    color: #7b7b7b;
+} 
+.inner-result-listing .right-col {
+    width: calc(100% - 215px);
+    float: right;
+}
+.clinical-note-modal .modal-title {
+    text-align: left;
+    color: #4b99c1;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.visit-body {
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+    overflow: scroll;
+    height: 400px;
+}   
+   </style>
+
+</head>
+<body>
+	<div class="container-fluid">
+    	<div class="search-wapper row">
+	       	<div class="col-8">
+		         <form class="formSearch" id="freeTextForm" action="javascript:freeTextSearch(1);">
+		     		<!-- <input type="text" id="myInput" onkeyup="groupSearch()" placeholder="Search for groups.." title="Type in a group"> -->
+		    		<input  type="text"  autocomplete="off" class="autocomplete" placeholder="Free text.." name="free_text" id="free-text" />
+		    		<button type="submit"><i class="fa fa-search"></i></button>
+		    		<div class="help-icon-freetxt"><i id="question-circle" class="far fa-question-circle"></i></div>
+		         </form>
+	         </div>
+
+	         <div class="col-4">
+				<div class="question-div-cls" id="question-circle-div">
+					<a href="javascript:closeInlineDiv()" class="close-helptext"><i class="far fa-times-circle"></i></a>
+					<div class="help-txt-content">
+						<table>
+						  <tr>
+						    <th>text</th>
+						    <th>Anything (full text search)</th>
+						  </tr>
+						  <tr>
+						    <td>patientId</td>
+						    <td>Id for the patient</td>
+						  </tr>
+						  <tr>
+						    <td>dateFrom</td>
+						    <td>Start date range of visit notes</td>
+						  </tr>
+						  <tr>
+						    <td>dateTo</td>
+						    <td>End date range of visit notes</td>
+						  </tr>
+						  <tr>
+						    <td>providerId</td>
+						    <td>Id of the provider</td>
+						  </tr>
+						    <tr>
+						    <td>providerName</td>
+						    <td>Name of the provider</td>
+						  </tr>
+						  <tr>
+						    <td>ageFrom</td>
+						    <td>Start age range mentioned in visit notes</td>
+						  </tr>
+						  <tr>
+						    <td>ageTo</td>
+						    <td>End age range mentioned in visit notes</td>
+						  </tr>
+						   <tr>
+						    <td>currentAgeFrom</td>
+						    <td>Start age range for the patient</td>
+						  </tr>
+						    <tr>
+						    <td>currentAgeTo</td>
+						    <td>End age range for the patient</td>
+						  </tr>
+						   <tr>
+						    <td>weightFrom</td>
+						    <td>Start weight range mentioned in the visit notes</td>
+						  </tr>
+						  <tr>
+						    <td>weightTo</td>
+						    <td>End weight range mentioned in the visit notes</td>
+						  </tr>
+						   <tr>
+						    <td>bmiFrom</td>
+						    <td>Start bmi range mentioned in the visit notes</td>
+						  </tr>
+						   <tr>
+						    <td>bmiTo</td>
+						    <td>End bmi range mentioned in the visit notes</td>
+						  </tr>
+						   <tr>
+						    <td>smoking</td>
+						    <td>Yes/No for any smoking history record</td>
+						  </tr>
+						</table>
+					</div>	
+		         </div>
+		 	</div>
+
+         </div>
+        <div class="row">
+           <div class="col-4">
+				<div class="clinical-search-wapper">
+				
+					<h2>Search By</h2>
+					<form id="searchPatientForm" action="javascript:onSearch(1)">
+					
+					<div class="row">
+						<div class="col-5"><label>PatientID</label></div>
+						<div class="col-7">
+							<input type="number"  placeholder="Patient ID" id="patientId" name="patientId"/>
+						</div>
+					</div>
+                    <div class="row">
+						<div class="col-5"><label>PatientName</label></div>
+						<div class="col-7">
+							<input type="text"  placeholder="Patient Name" id="patientName" name="patientName"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-5"><label>PatientBirthDate</label></div>
+						<div class="col-7">
+							<input type="text"  id="patientBirthDate" class="input-medium date_Picker" placeholder="patienBirthDate" name="patientBirthDate" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-5"><label>InstitutionName</label></div>
+						<div class="col-7">
+							<input type="text"  id="institutionName"  placeholder="institutionName" name="institutionName" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-5"><label>ReferringPhysicianName</label></div>
+						<div class="col-7">
+							<input type="text" placeholder="Referring Physician Name"  id="referringPhysicianName"  name="referringPhysicianName"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-5"><label>Institution Name</label></div>
+						<div class="col-7">
+							<input type="text" placeholder="Institution Name" onchange="isValidDate(this)" class="input-medium date_Picker" id="institutionName"  name="institutionName"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-5"><label>Creation Date</label></div>
+						<div class="col-7">
+							<input type="text" onchange="isValidDate(this)" placeholder="CreationDate" id="creationDate" name="creationDate"/>
+						</div>
+					</div>
+                    <div class="row">
+						<div class="col-5"><label>Creation Time</label></div>
+						<div class="col-7">
+							<input type="text" onkeydown="javascript:onKeyPress(event,this.id)" placeholder="Instance Creation Time" id="instanceCreationTime" name="instanceCreationTime"/>
+						</div>
+					</div>				
+ 					
+					<div class="row">
+						<div class="col-6"><input type="submit" id="savebutton" value="Submit" class="btn submit-btn" /></div>
+						<div class="col-6"><input type="button" id="formReset" value="Reset" class="btn submit-btn grey-btn" /></div>
+					</div>
+					</form>
+				</div>
+			</div>
+            <div class="col-8">
+                <div id="accordianDemo" class="filter-result-wapper">
+               
+					<h2 id="resultsHeader" >Results(<span id="resultCount"></span>)</h2>
+                  
+					<div  id="noResults" class="no-data"></div>        
+                </div>
+				<div id="page-selection" class="clinical-pagination"></div>
+            </div>
+           
+        </div>
+    </div>
+
+<!-- Modal -->
+<div class="modal fade clinical-note-modal" data-backdrop="static" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header" style="height: 100%; flex: 1 0 auto; position: relative;">
+      <h4 class="modal-title" id="myModalLabel">Clinical Notes</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        
+      </div>
+      <div id="visit-modal-body" class="visit-body">
+          <!-- <iframe src="" width="450" height="380" frameborder="0" allowtransparency="true"></iframe> -->  
+      </div>
+      
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+</body>
+</html>
